@@ -13,7 +13,7 @@ function filterData(searchText, restaurants) {
   return filterData;
 }
 
-const Body = () => {
+const Body = ({user}) => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -71,7 +71,7 @@ const Body = () => {
         {filteredRestaurants.map((restaurant) => {
           return (
             <Link to ={"/restaurant/"+restaurant.info.id} key={restaurant.info.id}>
-            <RestaurantCard {...restaurant?.info}  />
+            <RestaurantCard {...restaurant?.info}  user = {user} />
             </Link>
           );
         })}
